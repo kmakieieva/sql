@@ -54,7 +54,11 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+Type 1 (Overwrite):
+We can store only the current customer address in the table. When the address changes, we update the existing row and overwrite the old value. Therefore, no history is kept.
+
+Type 2 (With history):
+We store every version of the customer’s address in the table. When the address changes, we insert a new row with start/end dates or a flag denoting latest address, thus keeping all prior addresses for history and having easy way to get the latest address for each customer by querying by either latest start date or by the flag.
 ```
 
 ***
